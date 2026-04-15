@@ -1,65 +1,117 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Trophy, Star } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const { count } = await supabase
+    .from("duos")
+    .select("*", { count: "exact", head: true });
+
+  const duoCount = count ?? 0;
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="flex flex-col items-center justify-center min-h-screen px-6 py-12 text-center relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{ background: "oklch(0.55 0.22 290 / 0.08)" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full blur-3xl"
+          style={{ background: "oklch(0.82 0.18 85 / 0.06)" }}
+        />
+      </div>
+
+      {/* Stars decoration */}
+      <div className="absolute top-8 left-8 text-[oklch(0.82_0.18_85)] opacity-40">
+        <Star size={16} fill="currentColor" />
+      </div>
+      <div className="absolute top-12 right-12 text-[oklch(0.82_0.18_85)] opacity-30">
+        <Star size={12} fill="currentColor" />
+      </div>
+      <div className="absolute bottom-20 left-10 text-[oklch(0.82_0.18_85)] opacity-30">
+        <Star size={10} fill="currentColor" />
+      </div>
+      <div className="absolute bottom-32 right-8 text-[oklch(0.82_0.18_85)] opacity-40">
+        <Star size={14} fill="currentColor" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center gap-8 max-w-sm w-full">
+        {/* Trophy icon */}
+        <div
+          className="flex items-center justify-center w-24 h-24 rounded-full border"
+          style={{
+            background: "oklch(0.82 0.18 85 / 0.15)",
+            borderColor: "oklch(0.82 0.18 85 / 0.3)",
+          }}
+        >
+          <Trophy
+            style={{ color: "oklch(0.82 0.18 85)" }}
+            size={44}
+            strokeWidth={1.5}
+          />
+        </div>
+
+        {/* Title */}
+        <div className="space-y-3">
+          <h1 className="font-heading text-5xl font-black leading-tight text-gold-gradient">
+            Twins
+            <br />
+            Contest
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <div className="flex items-center gap-2 justify-center">
+            <div
+              className="h-px w-8"
+              style={{ background: "oklch(0.82 0.18 85 / 0.5)" }}
+            />
+            <Star
+              style={{ color: "oklch(0.82 0.18 85)" }}
+              size={10}
+              fill="currentColor"
+            />
+            <div
+              className="h-px w-8"
+              style={{ background: "oklch(0.82 0.18 85 / 0.5)" }}
+            />
+          </div>
+          <p className="text-xl font-heading italic text-white/70">
+            Concours de déguisement
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Description */}
+        <p className="text-white/60 text-base leading-relaxed">
+          Votez pour votre duo préféré&nbsp;!
+          <br />
+          Un seul vote par personne.
+        </p>
+
+        {/* CTA Button */}
+        <Link href="/vote" className="w-full">
+          <Button
+            size="lg"
+            className="w-full h-14 text-lg font-semibold active:scale-95 transition-all duration-150"
+            style={{
+              background: "oklch(0.82 0.18 85)",
+              color: "oklch(0.1 0 0)",
+              boxShadow: "0 8px 24px oklch(0.82 0.18 85 / 0.35)",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Voter maintenant
+          </Button>
+        </Link>
+
+        {/* Footer note */}
+        {duoCount > 0 && (
+          <p className="text-white/30 text-xs">
+            {duoCount} duo{duoCount > 1 ? "s" : ""} en compétition ce soir
+          </p>
+        )}
+      </div>
+    </main>
   );
 }
