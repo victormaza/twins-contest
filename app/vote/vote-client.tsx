@@ -83,6 +83,13 @@ export function VotePageClient({ duos }: VotePageClientProps) {
 
   const handleChangeVote = async (duo: Duo) => {
     if (isVoting) return;
+
+    // Already voted for this duo — just redirect
+    if (duo.id === votedDuoId) {
+      router.push("/merci");
+      return;
+    }
+
     setIsVoting(true);
 
     try {
@@ -96,7 +103,18 @@ export function VotePageClient({ duos }: VotePageClientProps) {
       });
 
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Erreur inconnue");
+
+      // Vote not found in DB (token lost) — treat as a fresh vote
+      if (res.status === 404) {
+        const { error } = await supabase.from("votes").insert({
+          duo_id: duo.id,
+          voter_token: token,
+        });
+        if (error && error.code !== "23505") throw error;
+        await supabase.rpc("increment_vote_count", { duo_id: duo.id });
+      } else if (!res.ok) {
+        throw new Error(json.error ?? "Erreur inconnue");
+      }
 
       // Update localStorage
       localStorage.setItem(VOTED_DUO_KEY, duo.id);
@@ -130,7 +148,7 @@ export function VotePageClient({ duos }: VotePageClientProps) {
               textShadow: "0 0 6px #fff, 0 0 16px rgba(255,255,255,0.6)",
             }}
           >
-            TWIN CONTEST
+            Twin Contest
           </span>
         </div>
         {hasVoted ? (
