@@ -44,7 +44,7 @@ const ADMIN_PASSWORD = "macbookpro";
 const ADMIN_STORAGE_KEY = "twins_admin_auth";
 
 function makeAuthHeader() {
-  return Buffer.from(`${ADMIN_LOGIN}:${ADMIN_PASSWORD}`).toString("base64");
+  return btoa(`${ADMIN_LOGIN}:${ADMIN_PASSWORD}`);
 }
 
 // ─── Login screen ──────────────────────────────────────────────────────────────
