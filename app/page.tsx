@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Trophy, Star } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { Countdown } from "@/components/countdown";
 
 export const revalidate = 60;
 
@@ -11,6 +12,7 @@ export default async function HomePage() {
     .select("*", { count: "exact", head: true });
 
   const duoCount = count ?? 0;
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-6 py-12 text-center relative overflow-hidden">
       {/* Background decorations */}
@@ -49,38 +51,23 @@ export default async function HomePage() {
             borderColor: "rgba(194,0,0,0.3)",
           }}
         >
-          <Trophy
-            style={{ color: "#c20000" }}
-            size={44}
-            strokeWidth={1.5}
-          />
+          <Trophy style={{ color: "#c20000" }} size={44} strokeWidth={1.5} />
         </div>
 
-        {/* Title */}
+        {/* Title — Laries font uniquement ici */}
         <div className="space-y-3">
-          <h1 className="font-heading text-5xl font-black leading-tight text-gold-gradient">
-            Twins
-            <br />
-            Contest
+          <h1
+            className="font-laries text-gold-gradient leading-tight"
+            style={{ fontSize: "clamp(3rem, 14vw, 4.5rem)" }}
+          >
+            Bal des Twins
           </h1>
           <div className="flex items-center gap-2 justify-center">
-            <div
-              className="h-px w-8"
-              style={{ background: "rgba(194,0,0,0.5)" }}
-            />
-            <Star
-              style={{ color: "#c20000" }}
-              size={10}
-              fill="currentColor"
-            />
-            <div
-              className="h-px w-8"
-              style={{ background: "rgba(194,0,0,0.5)" }}
-            />
+            <div className="h-px w-8" style={{ background: "rgba(194,0,0,0.5)" }} />
+            <Star style={{ color: "#c20000" }} size={10} fill="currentColor" />
+            <div className="h-px w-8" style={{ background: "rgba(194,0,0,0.5)" }} />
           </div>
-          <p className="text-xl font-heading italic text-white/70">
-            Concours de déguisement
-          </p>
+          <p className="text-lg italic text-white/70">Concours de déguisement</p>
         </div>
 
         {/* Description */}
@@ -89,6 +76,9 @@ export default async function HomePage() {
           <br />
           Un seul vote par personne.
         </p>
+
+        {/* Countdown */}
+        <Countdown />
 
         {/* CTA Button */}
         <Link href="/vote" className="w-full">
