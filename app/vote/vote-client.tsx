@@ -122,8 +122,15 @@ export function VotePageClient({ duos }: VotePageClientProps) {
       >
         <div className="flex items-center gap-2">
           <Trophy style={{ color: "#c20000" }} size={18} strokeWidth={1.5} />
-          <span className="font-heading font-bold text-lg text-gold-gradient">
-            Twins Contest
+          <span
+            className="font-laries"
+            style={{
+              fontSize: "1.4rem",
+              color: "#c20000",
+              textShadow: "0 0 6px #fff, 0 0 16px rgba(255,255,255,0.6)",
+            }}
+          >
+            Bal des Twins
           </span>
         </div>
         {hasVoted ? (
