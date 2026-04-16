@@ -130,7 +130,7 @@ export function VotePageClient({ duos }: VotePageClientProps) {
               textShadow: "0 0 6px #fff, 0 0 16px rgba(255,255,255,0.6)",
             }}
           >
-            Bal des Twins
+            TWIN CONTEST
           </span>
         </div>
         {hasVoted ? (
@@ -141,19 +141,19 @@ export function VotePageClient({ duos }: VotePageClientProps) {
             Vote enregistré
           </div>
         ) : (
-          <p className="text-white/40 text-xs">Choisissez un duo</p>
+          <p className="text-white/40 text-xs">Choisissez un twin</p>
         )}
       </header>
 
       {/* Subtitle */}
       <div className="px-4 pt-5 pb-3">
         <h1 className="text-white font-semibold text-lg">
-          {hasVoted ? "Résultats en cours…" : "Votez pour votre duo préféré"}
+          {hasVoted ? "Résultats en cours…" : "Votez pour votre twin préféré"}
         </h1>
         <p className="text-white/40 text-sm mt-0.5">
           {hasVoted
             ? "Merci pour votre participation !"
-            : `${duos.length} duos participent ce soir`}
+            : `${duos.length} twins participent ce soir`}
         </p>
       </div>
 
@@ -161,7 +161,7 @@ export function VotePageClient({ duos }: VotePageClientProps) {
       {duos.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 px-6 text-center gap-4">
           <div className="text-4xl">🎭</div>
-          <p className="text-white/50">Les duos arrivent bientôt…</p>
+          <p className="text-white/50">Les twins arrivent bientôt…</p>
         </div>
       ) : (
         <DuoGrid

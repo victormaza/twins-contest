@@ -196,7 +196,7 @@ export function DuoModal({
                       boxShadow: "0 4px 20px rgba(194,0,0,0.4)",
                     }}
                   >
-                    Voter pour ce duo
+                    Je vote pour ces twin !
                   </Button>
                 }
               />

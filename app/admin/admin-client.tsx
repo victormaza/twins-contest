@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
   Trophy,
@@ -16,6 +17,7 @@ import {
   ImageIcon,
   Loader2,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { supabase, type Duo } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
@@ -468,6 +470,17 @@ export function AdminPageClient() {
                 </div>
               </div>
             )}
+
+            {/* Revelation CTA */}
+            <Link href="/revelation" target="_blank">
+              <Button
+                className="w-full h-12 text-base font-semibold gap-2"
+                style={{ background: "#c20000", color: "#fff", boxShadow: "0 6px 24px rgba(194,0,0,0.4)" }}
+              >
+                <Sparkles size={16} />
+                Révéler les twins gagnants
+              </Button>
+            </Link>
 
             {/* Reset */}
             <div className="flex justify-end">

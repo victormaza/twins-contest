@@ -64,7 +64,7 @@ export default async function HomePage() {
               textShadow: "0 0 8px #fff, 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.6)",
             }}
           >
-            Bal des Twins
+            TWIN CONTEST
           </h1>
         </div>
 
@@ -89,16 +89,14 @@ export default async function HomePage() {
               boxShadow: "0 8px 24px rgba(194,0,0,0.35)",
             }}
           >
-            Voter maintenant
+            VOTER !
           </Button>
         </Link>
 
         {/* Footer note */}
-        {duoCount > 0 && (
           <p className="text-white/30 text-xs">
-            {duoCount} duo{duoCount > 1 ? "s" : ""} en compétition ce soir
+          1 seul duo gagnant !
           </p>
-        )}
       </div>
     </main>
   );
