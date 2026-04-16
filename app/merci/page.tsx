@@ -142,7 +142,7 @@ export default function MerciPage() {
 
         {/* Message */}
         <p className="text-white/50 text-sm leading-relaxed">
-          Les votes sont en cours. Le duo gagnant sera annoncé en fin de soirée.
+          Les votes sont en cours. Les twin gagnant sera annoncé en fin de soirée.
           Profitez du spectacle&nbsp;!&nbsp;🎭
         </p>
 
@@ -153,7 +153,7 @@ export default function MerciPage() {
             className="w-full border-white/20 text-white/60 bg-transparent hover:bg-white/5"
           >
             <ArrowLeft size={16} />
-            Voir tous les duos
+            Voir tous les twin
           </Button>
         </Link>
       </div>
