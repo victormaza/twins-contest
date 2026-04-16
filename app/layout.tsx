@@ -1,16 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Noto_Serif_Bengali } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+// Custom font — place the file at public/fonts/laries.woff2
+const laries = localFont({
+  src: "../public/fonts/laries.otf",
+  variable: "--font-laries",
+  display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+// Body font — Google Fonts
+const notoSerifBengali = Noto_Serif_Bengali({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${playfair.variable} ${inter.variable} dark`}>
+    <html lang="fr" className={`${laries.variable} ${notoSerifBengali.variable} dark`}>
       <body className="min-h-screen bg-[#002c70] text-white font-sans antialiased">
         {children}
       </body>
