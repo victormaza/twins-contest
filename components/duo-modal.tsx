@@ -102,7 +102,7 @@ export function DuoModal({
       {/* Modal panel */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-lg bg-[#1a1a1a] rounded-t-3xl overflow-hidden"
+        className="relative w-full max-w-lg bg-[#001640] rounded-t-3xl overflow-hidden"
         style={{
           maxHeight: "92dvh",
           transform: `translateX(${offsetX * 0.2}px)`,
@@ -149,13 +149,13 @@ export function DuoModal({
           {isVoted && (
             <div
               className="absolute inset-0 flex items-center justify-center"
-              style={{ background: "oklch(0.82 0.18 85 / 0.2)" }}
+              style={{ background: "rgba(194,0,0,0.2)" }}
             >
               <div
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold"
                 style={{
-                  background: "oklch(0.82 0.18 85)",
-                  color: "oklch(0.1 0 0)",
+                  background: "#c20000",
+                  color: "#ffffff",
                 }}
               >
                 <Check size={20} strokeWidth={3} />
@@ -191,9 +191,9 @@ export function DuoModal({
                     size="lg"
                     className="w-full h-13 text-base font-semibold active:scale-95 transition-all duration-150"
                     style={{
-                      background: "oklch(0.82 0.18 85)",
-                      color: "oklch(0.1 0 0)",
-                      boxShadow: "0 4px 20px oklch(0.82 0.18 85 / 0.4)",
+                      background: "#c20000",
+                      color: "#ffffff",
+                      boxShadow: "0 4px 20px rgba(194,0,0,0.4)",
                     }}
                   >
                     Voter pour ce duo
@@ -202,7 +202,7 @@ export function DuoModal({
               />
               <AlertDialogContent
                 className="border-white/10 max-w-[340px]"
-                style={{ background: "#1a1a1a" }}
+                style={{ background: "#001640" }}
               >
                 <AlertDialogHeader>
                   <AlertDialogTitle className="text-white font-heading text-xl">
@@ -221,7 +221,7 @@ export function DuoModal({
                   </AlertDialogCancel>
                   <AlertDialogAction
                     onClick={handleConfirmVote}
-                    style={{ background: "oklch(0.82 0.18 85)", color: "oklch(0.1 0 0)" }}
+                    style={{ background: "#c20000", color: "#ffffff" }}
                     className="font-semibold"
                   >
                     Confirmer
@@ -232,7 +232,7 @@ export function DuoModal({
           )}
 
           {hasVoted && isVoted && (
-            <p className="text-center text-sm font-semibold py-3" style={{ color: "oklch(0.82 0.18 85)" }}>
+            <p className="text-center text-sm font-semibold py-3" style={{ color: "#c20000" }}>
               ✓ Vous avez voté pour ce duo
             </p>
           )}
@@ -257,7 +257,7 @@ export function DuoModal({
               />
               <AlertDialogContent
                 className="border-white/10 max-w-[340px]"
-                style={{ background: "#1a1a1a" }}
+                style={{ background: "#001640" }}
               >
                 <AlertDialogHeader>
                   <AlertDialogTitle className="text-white font-heading text-xl">

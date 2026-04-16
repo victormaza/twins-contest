@@ -21,21 +21,21 @@ export default async function HomePage() {
         />
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.82 0.18 85 / 0.06)" }}
+          style={{ background: "rgba(194,0,0,0.06)" }}
         />
       </div>
 
       {/* Stars decoration */}
-      <div className="absolute top-8 left-8 text-[oklch(0.82_0.18_85)] opacity-40">
+      <div className="absolute top-8 left-8 text-[#c20000] opacity-40">
         <Star size={16} fill="currentColor" />
       </div>
-      <div className="absolute top-12 right-12 text-[oklch(0.82_0.18_85)] opacity-30">
+      <div className="absolute top-12 right-12 text-[#c20000] opacity-30">
         <Star size={12} fill="currentColor" />
       </div>
-      <div className="absolute bottom-20 left-10 text-[oklch(0.82_0.18_85)] opacity-30">
+      <div className="absolute bottom-20 left-10 text-[#c20000] opacity-30">
         <Star size={10} fill="currentColor" />
       </div>
-      <div className="absolute bottom-32 right-8 text-[oklch(0.82_0.18_85)] opacity-40">
+      <div className="absolute bottom-32 right-8 text-[#c20000] opacity-40">
         <Star size={14} fill="currentColor" />
       </div>
 
@@ -45,12 +45,12 @@ export default async function HomePage() {
         <div
           className="flex items-center justify-center w-24 h-24 rounded-full border"
           style={{
-            background: "oklch(0.82 0.18 85 / 0.15)",
-            borderColor: "oklch(0.82 0.18 85 / 0.3)",
+            background: "rgba(194,0,0,0.15)",
+            borderColor: "rgba(194,0,0,0.3)",
           }}
         >
           <Trophy
-            style={{ color: "oklch(0.82 0.18 85)" }}
+            style={{ color: "#c20000" }}
             size={44}
             strokeWidth={1.5}
           />
@@ -66,16 +66,16 @@ export default async function HomePage() {
           <div className="flex items-center gap-2 justify-center">
             <div
               className="h-px w-8"
-              style={{ background: "oklch(0.82 0.18 85 / 0.5)" }}
+              style={{ background: "rgba(194,0,0,0.5)" }}
             />
             <Star
-              style={{ color: "oklch(0.82 0.18 85)" }}
+              style={{ color: "#c20000" }}
               size={10}
               fill="currentColor"
             />
             <div
               className="h-px w-8"
-              style={{ background: "oklch(0.82 0.18 85 / 0.5)" }}
+              style={{ background: "rgba(194,0,0,0.5)" }}
             />
           </div>
           <p className="text-xl font-heading italic text-white/70">
@@ -96,9 +96,9 @@ export default async function HomePage() {
             size="lg"
             className="w-full h-14 text-lg font-semibold active:scale-95 transition-all duration-150"
             style={{
-              background: "oklch(0.82 0.18 85)",
-              color: "oklch(0.1 0 0)",
-              boxShadow: "0 8px 24px oklch(0.82 0.18 85 / 0.35)",
+              background: "#c20000",
+              color: "#ffffff",
+              boxShadow: "0 8px 24px rgba(194,0,0,0.35)",
             }}
           >
             Voter maintenant

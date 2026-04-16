@@ -69,14 +69,14 @@ function LoginScreen({ onAuth }: { onAuth: () => void }) {
     <div className="flex flex-col items-center justify-center min-h-screen px-6">
       <div
         className="w-full max-w-sm rounded-2xl p-8 border space-y-6"
-        style={{ background: "oklch(0.13 0 0)", borderColor: "oklch(1 0 0 / 0.1)" }}
+        style={{ background: "#001d4a", borderColor: "oklch(1 0 0 / 0.1)" }}
       >
         <div className="text-center space-y-2">
           <div
             className="flex items-center justify-center w-12 h-12 rounded-full mx-auto"
-            style={{ background: "oklch(0.82 0.18 85 / 0.15)" }}
+            style={{ background: "rgba(194,0,0,0.15)" }}
           >
-            <Lock style={{ color: "oklch(0.82 0.18 85)" }} size={20} />
+            <Lock style={{ color: "#c20000" }} size={20} />
           </div>
           <h1 className="font-heading text-2xl font-bold text-white">Administration</h1>
           <p className="text-white/40 text-sm">Twins Contest</p>
@@ -130,7 +130,7 @@ function LoginScreen({ onAuth }: { onAuth: () => void }) {
           <Button
             type="submit"
             className="w-full font-semibold mt-1"
-            style={{ background: "oklch(0.82 0.18 85)", color: "oklch(0.1 0 0)" }}
+            style={{ background: "#c20000", color: "#ffffff" }}
           >
             Accéder
           </Button>
@@ -201,10 +201,10 @@ function AddDuoForm({ onAdded }: { onAdded: (duo: Duo) => void }) {
   return (
     <div
       className="rounded-xl border p-4 space-y-4"
-      style={{ background: "oklch(0.13 0 0)", borderColor: "oklch(0.82 0.18 85 / 0.2)" }}
+      style={{ background: "#001d4a", borderColor: "rgba(194,0,0,0.2)" }}
     >
       <div className="flex items-center gap-2">
-        <Plus style={{ color: "oklch(0.82 0.18 85)" }} size={16} />
+        <Plus style={{ color: "#c20000" }} size={16} />
         <h2 className="text-white font-semibold text-sm">Ajouter un duo</h2>
       </div>
 
@@ -225,7 +225,7 @@ function AddDuoForm({ onAdded }: { onAdded: (duo: Duo) => void }) {
               type="button"
               onClick={() => fileInputRef.current?.click()}
               className="relative w-full aspect-video rounded-xl overflow-hidden border-2 block"
-              style={{ borderColor: "oklch(0.82 0.18 85 / 0.4)" }}
+              style={{ borderColor: "rgba(194,0,0,0.4)" }}
             >
               <Image src={preview} alt="Aperçu" fill className="object-cover" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/50">
@@ -239,7 +239,7 @@ function AddDuoForm({ onAdded }: { onAdded: (duo: Duo) => void }) {
               className="flex flex-col items-center justify-center w-full aspect-video rounded-xl border-2 border-dashed cursor-pointer transition-colors"
               style={{ borderColor: "oklch(1 0 0 / 0.15)", background: "oklch(1 0 0 / 0.03)" }}
             >
-              <Camera style={{ color: "oklch(0.82 0.18 85)" }} size={28} className="mb-2" />
+              <Camera style={{ color: "#c20000" }} size={28} className="mb-2" />
               <span className="text-white/60 text-sm font-medium">Prendre une photo</span>
               <span className="text-white/30 text-xs mt-0.5">ou choisir depuis la galerie</span>
             </label>
@@ -271,7 +271,7 @@ function AddDuoForm({ onAdded }: { onAdded: (duo: Duo) => void }) {
           style={
             status === "success"
               ? { background: "oklch(0.6 0.2 145)", color: "white" }
-              : { background: "oklch(0.82 0.18 85)", color: "oklch(0.1 0 0)" }
+              : { background: "#c20000", color: "#ffffff" }
           }
         >
           {status === "uploading" && <Loader2 size={15} className="animate-spin" />}
@@ -382,13 +382,13 @@ export function AdminPageClient() {
       <header
         className="sticky top-0 z-40 px-4 py-3 flex items-center justify-between"
         style={{
-          background: "rgba(15,15,15,0.95)",
+          background: "rgba(0,44,112,0.95)",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid oklch(1 0 0 / 0.08)",
         }}
       >
         <div className="flex items-center gap-2">
-          <Trophy style={{ color: "oklch(0.82 0.18 85)" }} size={18} strokeWidth={1.5} />
+          <Trophy style={{ color: "#c20000" }} size={18} strokeWidth={1.5} />
           <span className="font-heading font-bold text-lg text-gold-gradient">Admin</span>
         </div>
         <div className="flex items-center gap-2">
@@ -409,7 +409,7 @@ export function AdminPageClient() {
         {/* Tabs */}
         <div
           className="flex gap-1 p-1 rounded-xl"
-          style={{ background: "oklch(0.13 0 0)" }}
+          style={{ background: "#001d4a" }}
         >
           {(["votes", "duos"] as const).map((tab) => (
             <button
@@ -418,7 +418,7 @@ export function AdminPageClient() {
               className="flex-1 py-2 rounded-lg text-sm font-medium transition-all duration-150"
               style={
                 activeTab === tab
-                  ? { background: "oklch(0.82 0.18 85)", color: "oklch(0.1 0 0)" }
+                  ? { background: "#c20000", color: "#ffffff" }
                   : { color: "oklch(0.6 0 0)" }
               }
             >
@@ -439,10 +439,10 @@ export function AdminPageClient() {
                 <div
                   key={label}
                   className="rounded-xl p-4 border"
-                  style={{ background: "oklch(0.13 0 0)", borderColor: "oklch(1 0 0 / 0.1)" }}
+                  style={{ background: "#001d4a", borderColor: "oklch(1 0 0 / 0.1)" }}
                 >
                   <p className="text-white/40 text-xs">{label}</p>
-                  <p className="text-3xl font-bold font-heading mt-1" style={{ color: "oklch(0.82 0.18 85)" }}>
+                  <p className="text-3xl font-bold font-heading mt-1" style={{ color: "#c20000" }}>
                     {value}
                   </p>
                 </div>
@@ -453,12 +453,12 @@ export function AdminPageClient() {
             {winner && maxVotes > 0 && (
               <div
                 className="rounded-xl p-4 border flex items-center gap-3"
-                style={{ background: "oklch(0.82 0.18 85 / 0.1)", borderColor: "oklch(0.82 0.18 85 / 0.4)" }}
+                style={{ background: "rgba(194,0,0,0.1)", borderColor: "rgba(194,0,0,0.4)" }}
               >
-                <Crown style={{ color: "oklch(0.82 0.18 85)" }} size={24} />
+                <Crown style={{ color: "#c20000" }} size={24} />
                 <div>
                   <p className="text-white/50 text-xs">En tête</p>
-                  <p className="font-heading font-bold text-lg" style={{ color: "oklch(0.82 0.18 85)" }}>
+                  <p className="font-heading font-bold text-lg" style={{ color: "#c20000" }}>
                     {winner.name}
                   </p>
                   <p className="text-white/50 text-xs">
@@ -485,7 +485,7 @@ export function AdminPageClient() {
                     </Button>
                   }
                 />
-                <AlertDialogContent className="border-white/10 max-w-[340px]" style={{ background: "#1a1a1a" }}>
+                <AlertDialogContent className="border-white/10 max-w-[340px]" style={{ background: "#001640" }}>
                   <AlertDialogHeader>
                     <AlertDialogTitle className="text-white">Réinitialiser tous les votes ?</AlertDialogTitle>
                     <AlertDialogDescription className="text-white/60">
@@ -507,7 +507,7 @@ export function AdminPageClient() {
             {/* Ranking table */}
             <div
               className="rounded-xl border overflow-hidden"
-              style={{ background: "oklch(0.13 0 0)", borderColor: "oklch(1 0 0 / 0.1)" }}
+              style={{ background: "#001d4a", borderColor: "oklch(1 0 0 / 0.1)" }}
             >
               <Table>
                 <TableHeader>
@@ -527,16 +527,16 @@ export function AdminPageClient() {
                         key={duo.id}
                         style={{
                           borderBottomColor: "oklch(1 0 0 / 0.05)",
-                          background: isWinner ? "oklch(0.82 0.18 85 / 0.05)" : undefined,
+                          background: isWinner ? "rgba(194,0,0,0.05)" : undefined,
                         }}
                       >
                         <TableCell className="text-white/30 text-sm font-mono">
-                          {isWinner ? <Crown style={{ color: "oklch(0.82 0.18 85)" }} size={14} /> : index + 1}
+                          {isWinner ? <Crown style={{ color: "#c20000" }} size={14} /> : index + 1}
                         </TableCell>
                         <TableCell>
                           <span
                             className={`text-sm font-medium ${isWinner ? "" : "text-white/80"}`}
-                            style={isWinner ? { color: "oklch(0.82 0.18 85)" } : undefined}
+                            style={isWinner ? { color: "#c20000" } : undefined}
                           >
                             {duo.name}
                           </span>
@@ -548,13 +548,13 @@ export function AdminPageClient() {
                                 className="h-full rounded-full transition-all duration-500"
                                 style={{
                                   width: `${pct}%`,
-                                  background: isWinner ? "oklch(0.82 0.18 85)" : "oklch(0.55 0.22 290)",
+                                  background: isWinner ? "#c20000" : "oklch(0.55 0.22 290)",
                                 }}
                               />
                             </div>
                             <span
                               className={`text-sm font-semibold tabular-nums ${isWinner ? "" : "text-white/70"}`}
-                              style={isWinner ? { color: "oklch(0.82 0.18 85)" } : undefined}
+                              style={isWinner ? { color: "#c20000" } : undefined}
                             >
                               {duo.vote_count}
                             </span>
@@ -590,7 +590,7 @@ export function AdminPageClient() {
                   <div
                     key={duo.id}
                     className="flex items-center gap-3 rounded-xl p-3 border"
-                    style={{ background: "oklch(0.13 0 0)", borderColor: "oklch(1 0 0 / 0.08)" }}
+                    style={{ background: "#001d4a", borderColor: "oklch(1 0 0 / 0.08)" }}
                   >
                     {/* Thumbnail */}
                     <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white/5">
@@ -618,7 +618,7 @@ export function AdminPageClient() {
                           </button>
                         }
                       />
-                      <AlertDialogContent className="border-white/10 max-w-[340px]" style={{ background: "#1a1a1a" }}>
+                      <AlertDialogContent className="border-white/10 max-w-[340px]" style={{ background: "#001640" }}>
                         <AlertDialogHeader>
                           <AlertDialogTitle className="text-white">Supprimer ce duo ?</AlertDialogTitle>
                           <AlertDialogDescription className="text-white/60">

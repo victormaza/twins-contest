@@ -38,44 +38,40 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
-  --color-gold: var(--gold);
-  --color-gold-foreground: var(--gold-foreground);
 }
 
 :root {
   --radius: 0.625rem;
 }
 
-/* Festive dark theme */
+/* Blue & Red theme */
 .dark {
-  --background: oklch(0.08 0 0);
+  --background: #002c70;
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.13 0 0);
+  --card: #001d4a;
   --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.13 0 0);
+  --popover: #001d4a;
   --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.82 0.18 85);   /* gold */
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.18 0 0);
+  --primary: #c20000;
+  --primary-foreground: oklch(0.97 0 0);
+  --secondary: #001640;
   --secondary-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.55 0.22 290);   /* purple */
+  --muted: #001640;
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: #c20000;
   --accent-foreground: oklch(0.97 0 0);
   --destructive: oklch(0.65 0.22 25);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.82 0.18 85);
-  --gold: oklch(0.82 0.18 85);
-  --gold-foreground: oklch(0.1 0 0);
-  --sidebar: oklch(0.13 0 0);
+  --ring: #c20000;
+  --sidebar: #001d4a;
   --sidebar-foreground: oklch(0.97 0 0);
-  --sidebar-primary: oklch(0.82 0.18 85);
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
+  --sidebar-primary: #c20000;
+  --sidebar-primary-foreground: oklch(0.97 0 0);
+  --sidebar-accent: #001640;
   --sidebar-accent-foreground: oklch(0.97 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.82 0.18 85);
+  --sidebar-ring: #c20000;
 }
 
 @layer base {
@@ -90,7 +86,6 @@
   }
 }
 
-/* Custom utilities */
 .font-heading {
   font-family: var(--font-playfair), serif;
 }
@@ -106,17 +101,13 @@
 @media (hover: hover) {
   .duo-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 8px 32px oklch(0.82 0.18 85 / 0.25);
+    box-shadow: 0 8px 32px rgba(194, 0, 0, 0.3);
   }
 }
 
-/* Gold shimmer text */
-.text-gold {
-  color: oklch(0.82 0.18 85);
-}
-
+/* Red gradient text */
 .text-gold-gradient {
-  background: linear-gradient(135deg, oklch(0.82 0.18 85), oklch(0.9 0.12 75), oklch(0.82 0.18 85));
+  background: linear-gradient(135deg, #ff2222, #ffffff, #ff2222);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -118,17 +118,17 @@ export function VotePageClient({ duos }: VotePageClientProps) {
     <div className="min-h-screen">
       {/* Header */}
       <header className="sticky top-0 z-40 px-4 py-3 flex items-center justify-between"
-        style={{ background: "rgba(15,15,15,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid oklch(1 0 0 / 0.08)" }}
+        style={{ background: "rgba(0,44,112,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid oklch(1 0 0 / 0.08)" }}
       >
         <div className="flex items-center gap-2">
-          <Trophy style={{ color: "oklch(0.82 0.18 85)" }} size={18} strokeWidth={1.5} />
+          <Trophy style={{ color: "#c20000" }} size={18} strokeWidth={1.5} />
           <span className="font-heading font-bold text-lg text-gold-gradient">
             Twins Contest
           </span>
         </div>
         {hasVoted ? (
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
-            style={{ background: "oklch(0.82 0.18 85 / 0.15)", color: "oklch(0.82 0.18 85)", border: "1px solid oklch(0.82 0.18 85 / 0.3)" }}
+            style={{ background: "rgba(194,0,0,0.15)", color: "#c20000", border: "1px solid rgba(194,0,0,0.3)" }}
           >
             <Star size={10} fill="currentColor" />
             Vote enregistré

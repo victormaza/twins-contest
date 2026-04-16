@@ -33,7 +33,7 @@ export default function MerciPage() {
         />
         <div
           className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.82 0.18 85 / 0.08)" }}
+          style={{ background: "rgba(194,0,0,0.08)" }}
         />
       </div>
 
@@ -49,7 +49,7 @@ export default function MerciPage() {
           }}
         >
           <Star
-            style={{ color: "oklch(0.82 0.18 85)" }}
+            style={{ color: "#c20000" }}
             size={8 + (i % 3) * 4}
             fill="currentColor"
           />
@@ -61,12 +61,12 @@ export default function MerciPage() {
         <div
           className="flex items-center justify-center w-20 h-20 rounded-full border-2"
           style={{
-            background: "oklch(0.82 0.18 85 / 0.15)",
-            borderColor: "oklch(0.82 0.18 85 / 0.5)",
+            background: "rgba(194,0,0,0.15)",
+            borderColor: "rgba(194,0,0,0.5)",
           }}
         >
           <Check
-            style={{ color: "oklch(0.82 0.18 85)" }}
+            style={{ color: "#c20000" }}
             size={36}
             strokeWidth={2.5}
           />
@@ -82,17 +82,17 @@ export default function MerciPage() {
           <div className="flex items-center gap-2 justify-center">
             <div
               className="h-px w-6"
-              style={{ background: "oklch(0.82 0.18 85 / 0.4)" }}
+              style={{ background: "rgba(194,0,0,0.4)" }}
             />
             <Trophy
-              style={{ color: "oklch(0.82 0.18 85)" }}
+              style={{ color: "#c20000" }}
               size={12}
               fill="currentColor"
               strokeWidth={0}
             />
             <div
               className="h-px w-6"
-              style={{ background: "oklch(0.82 0.18 85 / 0.4)" }}
+              style={{ background: "rgba(194,0,0,0.4)" }}
             />
           </div>
         </div>
@@ -102,8 +102,8 @@ export default function MerciPage() {
           <div
             className="w-full rounded-2xl overflow-hidden border"
             style={{
-              background: "oklch(0.13 0 0)",
-              borderColor: "oklch(0.82 0.18 85 / 0.25)",
+              background: "#001d4a",
+              borderColor: "rgba(194,0,0,0.25)",
             }}
           >
             {duoImage && (
@@ -121,10 +121,10 @@ export default function MerciPage() {
             <div className="px-4 py-3 flex items-center gap-3">
               <div
                 className="flex items-center justify-center w-8 h-8 rounded-full flex-shrink-0"
-                style={{ background: "oklch(0.82 0.18 85 / 0.2)" }}
+                style={{ background: "rgba(194,0,0,0.2)" }}
               >
                 <Check
-                  style={{ color: "oklch(0.82 0.18 85)" }}
+                  style={{ color: "#c20000" }}
                   size={14}
                   strokeWidth={3}
                 />

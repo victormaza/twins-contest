@@ -50,7 +50,7 @@ export function DuoGrid({ duos, votedDuoId, hasVoted, onVote, onChangeVote }: Du
             <button
               key={duo.id}
               onClick={() => handleOpenDuo(index)}
-              className="duo-card relative aspect-square rounded-xl overflow-hidden border border-white/10 focus:outline-none focus:ring-2 focus:ring-[oklch(0.82_0.18_85)] focus:ring-offset-2 focus:ring-offset-[#0f0f0f]"
+              className="duo-card relative aspect-square rounded-xl overflow-hidden border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#c20000] focus:ring-offset-2 focus:ring-offset-[#002c70]"
               aria-label={`Voir ${duo.name}`}
             >
               {/* Image */}
@@ -76,8 +76,8 @@ export function DuoGrid({ duos, votedDuoId, hasVoted, onVote, onChangeVote }: Du
               {isVoted && (
                 <div className="absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold voted-pulse"
                   style={{
-                    background: "oklch(0.82 0.18 85)",
-                    color: "oklch(0.1 0 0)",
+                    background: "#c20000",
+                    color: "#ffffff",
                   }}
                 >
                   <Check size={10} strokeWidth={3} />
