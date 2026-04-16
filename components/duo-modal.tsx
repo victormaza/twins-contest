@@ -107,6 +107,7 @@ export function DuoModal({
           maxHeight: "92dvh",
           transform: `translateX(${offsetX * 0.2}px)`,
           transition: offsetX === 0 ? "transform 0.2s ease" : "none",
+          touchAction: "none",
         }}
         {...bind()}
       >
@@ -233,7 +234,7 @@ export function DuoModal({
 
           {hasVoted && isVoted && (
             <p className="text-center text-sm font-semibold py-3" style={{ color: "#c20000" }}>
-              ✓ Vous avez voté pour ce duo
+              ✓ Vous avez voté pour ces twin !
             </p>
           )}
 
@@ -251,7 +252,7 @@ export function DuoModal({
                       background: "oklch(0.55 0.22 290 / 0.12)",
                     }}
                   >
-                    Changer mon vote pour ce duo
+                    Changer mon vote pour ces twin
                   </Button>
                 }
               />

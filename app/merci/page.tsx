@@ -7,6 +7,12 @@ import { useRouter } from "next/navigation";
 import { Trophy, Star, Check, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const STARS = Array.from({ length: 8 }, (_, i) => ({
+  top: `${10 + ((i * 37 + 13) % 80)}%`,
+  left: `${5 + ((i * 53 + 7) % 90)}%`,
+  opacity: 0.2 + ((i * 17 + 3) % 30) / 100,
+}));
+
 export default function MerciPage() {
   const router = useRouter();
   const [duoName, setDuoName] = useState<string | null>(null);
@@ -38,15 +44,11 @@ export default function MerciPage() {
       </div>
 
       {/* Confetti stars */}
-      {[...Array(8)].map((_, i) => (
+      {STARS.map((s, i) => (
         <div
           key={i}
           className="absolute"
-          style={{
-            top: `${10 + Math.random() * 80}%`,
-            left: `${5 + Math.random() * 90}%`,
-            opacity: 0.2 + Math.random() * 0.3,
-          }}
+          style={{ top: s.top, left: s.left, opacity: s.opacity }}
         >
           <Star
             style={{ color: "#c20000" }}
@@ -113,7 +115,8 @@ export default function MerciPage() {
                   alt={duoName}
                   fill
                   className="object-cover"
-                  sizes="100vw"
+                  sizes="(max-width: 640px) 100vw, 384px"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
