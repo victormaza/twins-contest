@@ -100,7 +100,10 @@ export async function DELETE(req: NextRequest) {
     .eq("id", id)
     .single();
 
-  // Delete from DB (cascade will handle votes)
+  // Delete votes for this duo first (no ON DELETE CASCADE in schema)
+  await supabase.from("votes").delete().eq("duo_id", id);
+
+  // Delete duo from DB
   const { error } = await supabase.from("duos").delete().eq("id", id);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

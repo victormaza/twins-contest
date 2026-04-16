@@ -343,7 +343,7 @@ export function AdminPageClient() {
   const handleDelete = async (id: string) => {
     setDeletingId(id);
     try {
-      await fetch("/api/admin/duo", {
+      const res = await fetch("/api/admin/duo", {
         method: "DELETE",
         headers: {
           "x-admin-auth": makeAuthHeader(),
@@ -351,7 +351,13 @@ export function AdminPageClient() {
         },
         body: JSON.stringify({ id }),
       });
+
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? "Erreur inconnue");
+
       setDuos((prev) => prev.filter((d) => d.id !== id));
+    } catch (err) {
+      alert(`Erreur suppression : ${err instanceof Error ? err.message : "Erreur inconnue"}`);
     } finally {
       setDeletingId(null);
     }
