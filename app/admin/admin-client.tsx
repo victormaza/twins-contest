@@ -215,7 +215,6 @@ function AddDuoForm({ onAdded }: { onAdded: (duo: Duo) => void }) {
             ref={fileInputRef}
             type="file"
             accept="image/*"
-            capture="environment"
             onChange={handleFileChange}
             className="hidden"
             id="duo-image-input"
