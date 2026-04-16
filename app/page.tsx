@@ -57,17 +57,15 @@ export default async function HomePage() {
         {/* Title — Laries font uniquement ici */}
         <div className="space-y-3">
           <h1
-            className="font-laries text-gold-gradient leading-tight"
-            style={{ fontSize: "clamp(3rem, 14vw, 4.5rem)" }}
+            className="font-laries leading-tight"
+            style={{
+              fontSize: "clamp(3rem, 14vw, 4.5rem)",
+              color: "#c20000",
+              textShadow: "0 0 8px #fff, 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.6)",
+            }}
           >
             Bal des Twins
           </h1>
-          <div className="flex items-center gap-2 justify-center">
-            <div className="h-px w-8" style={{ background: "rgba(194,0,0,0.5)" }} />
-            <Star style={{ color: "#c20000" }} size={10} fill="currentColor" />
-            <div className="h-px w-8" style={{ background: "rgba(194,0,0,0.5)" }} />
-          </div>
-          <p className="text-lg italic text-white/70">Concours de déguisement</p>
         </div>
 
         {/* Description */}
