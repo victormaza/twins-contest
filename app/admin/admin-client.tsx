@@ -334,8 +334,15 @@ export function AdminPageClient() {
   const handleReset = async () => {
     setIsResetting(true);
     try {
-      await supabase.from("votes").delete().neq("id", "00000000-0000-0000-0000-000000000000");
-      await supabase.from("duos").update({ vote_count: 0 }).neq("id", "00000000-0000-0000-0000-000000000000");
+      const res = await fetch("/api/admin/reset", {
+        method: "POST",
+        headers: { "x-admin-auth": makeAuthHeader() },
+      });
+      if (!res.ok) {
+        const { error } = await res.json();
+        console.error("Reset failed:", error);
+        return;
+      }
       await fetchDuos();
     } finally {
       setIsResetting(false);

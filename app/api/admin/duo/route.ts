@@ -37,8 +37,19 @@ export async function POST(req: NextRequest) {
 
   const supabase = getAdminClient();
 
-  // Sanitize filename
-  const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
+  // Normalize MIME type — iOS sends image/heic or empty string
+  const MIME_MAP: Record<string, string> = {
+    "image/heic": "image/jpeg",
+    "image/heif": "image/jpeg",
+    "image/heic-sequence": "image/jpeg",
+    "image/heif-sequence": "image/jpeg",
+  };
+  const rawType = file.type?.toLowerCase() || "";
+  const contentType = MIME_MAP[rawType] ?? (rawType.startsWith("image/") ? rawType : "image/jpeg");
+  const ext = contentType === "image/jpeg" ? "jpg"
+    : contentType === "image/png" ? "png"
+    : contentType === "image/webp" ? "webp"
+    : "jpg";
   const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
   // Upload to Supabase Storage
@@ -46,7 +57,7 @@ export async function POST(req: NextRequest) {
   const { error: uploadError } = await supabase.storage
     .from("duos")
     .upload(filename, arrayBuffer, {
-      contentType: file.type,
+      contentType,
       upsert: false,
     });
 
