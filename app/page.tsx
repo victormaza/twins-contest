@@ -64,7 +64,7 @@ export default async function HomePage() {
               textShadow: "0 0 8px #fff, 0 0 20px #fff, 0 0 40px rgba(255,255,255,0.6)",
             }}
           >
-            TWIN CONTEST
+            Twin Contest
           </h1>
         </div>
 
