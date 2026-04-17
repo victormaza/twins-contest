@@ -99,22 +99,40 @@ export function DuoModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      {/* Modal panel */}
+      {/* Modal panel — full height image */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-lg bg-[#001640] rounded-t-3xl overflow-hidden"
+        className="relative w-full max-w-lg rounded-t-3xl overflow-hidden"
         style={{
-          maxHeight: "92dvh",
+          height: "92dvh",
           transform: `translateX(${offsetX * 0.2}px)`,
           transition: offsetX === 0 ? "transform 0.2s ease" : "none",
           touchAction: "none",
         }}
         {...bind()}
       >
+        {/* Full-height image */}
+        <Image
+          src={duo.image_url}
+          alt={duo.name}
+          fill
+          className="object-cover object-top"
+          sizes="100vw"
+          priority
+        />
+
+        {/* Voted tint */}
+        {isVoted && (
+          <div className="absolute inset-0" style={{ background: "rgba(194,0,0,0.15)" }} />
+        )}
+
+        {/* Bottom gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-white/20 transition-colors"
+          className="absolute top-4 right-4 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/50 text-white/80 hover:bg-black/70 transition-colors"
           aria-label="Fermer"
         >
           <X size={16} />
@@ -123,54 +141,24 @@ export function DuoModal({
         {/* Navigation buttons */}
         <button
           onClick={() => handleNavigate("prev")}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
           aria-label="Duo précédent"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={22} />
         </button>
         <button
           onClick={() => handleNavigate("next")}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/40 text-white/80 hover:bg-black/60 transition-colors"
           aria-label="Duo suivant"
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={22} />
         </button>
 
-        {/* Image */}
-        <div className="relative w-full aspect-[4/3]">
-          <Image
-            src={duo.image_url}
-            alt={duo.name}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          {/* Voted overlay */}
-          {isVoted && (
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{ background: "rgba(194,0,0,0.2)" }}
-            >
-              <div
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold"
-                style={{
-                  background: "#c20000",
-                  color: "#ffffff",
-                }}
-              >
-                <Check size={20} strokeWidth={3} />
-                Voté !
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="px-6 py-5 space-y-4">
+        {/* Bottom content overlay */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-8 pt-4 space-y-4">
           {/* Name */}
-          <div className="space-y-1">
-            <p className="text-white/40 text-xs uppercase tracking-widest">
+          <div className="space-y-0.5">
+            <p className="text-white/50 text-xs uppercase tracking-widest">
               Duo #{currentIndex + 1}
             </p>
             <h2 className="font-heading text-2xl font-bold text-white leading-tight">
@@ -179,9 +167,7 @@ export function DuoModal({
           </div>
 
           {/* Swipe hint */}
-          <p className="text-white/30 text-xs text-center">
-            ← Swiper pour naviguer →
-          </p>
+          <p className="text-white/30 text-xs text-center">← Swiper pour naviguer →</p>
 
           {/* Vote button */}
           {!hasVoted && (
@@ -233,9 +219,10 @@ export function DuoModal({
           )}
 
           {hasVoted && isVoted && (
-            <p className="text-center text-sm font-semibold py-3" style={{ color: "#c20000" }}>
-              ✓ Vous avez voté pour ces twin !
-            </p>
+            <div className="flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm" style={{ background: "rgba(194,0,0,0.2)", color: "#c20000", border: "1px solid rgba(194,0,0,0.4)" }}>
+              <Check size={16} strokeWidth={3} />
+              Vous avez voté pour ces twin !
+            </div>
           )}
 
           {hasVoted && !isVoted && (
