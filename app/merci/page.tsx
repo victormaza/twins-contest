@@ -153,7 +153,7 @@ export default function MerciPage() {
             className="w-full border-white/20 text-white/60 bg-transparent hover:bg-white/5"
           >
             <ArrowLeft size={16} />
-            Voir tous les twin
+            Voir tous les twins
           </Button>
         </Link>
       </div>

@@ -6,7 +6,7 @@ import { Trophy, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Duo } from "@/lib/supabase";
 
-type State = "idle" | "3" | "2" | "1" | "revealed";
+type State = "idle" | "5" | "4" | "3" | "2" | "1" | "revealed";
 
 interface RevelationClientProps {
   winner: Pick<Duo, "id" | "name" | "image_url" | "vote_count"> | null;
@@ -16,42 +16,39 @@ export function RevelationClient({ winner }: RevelationClientProps) {
   const [state, setState] = useState<State>("idle");
 
   const startReveal = () => {
-    setState("3");
-    setTimeout(() => setState("2"), 1000);
-    setTimeout(() => setState("1"), 2000);
-    setTimeout(() => setState("revealed"), 3000);
+    setState("5");
+    setTimeout(() => setState("4"), 1000);
+    setTimeout(() => setState("3"), 2000);
+    setTimeout(() => setState("2"), 3000);
+    setTimeout(() => setState("1"), 4000);
+    setTimeout(() => setState("revealed"), 5000);
   };
 
   // ── Idle ──────────────────────────────────────────────────────────────────
   if (state === "idle") {
     return (
       <main className="flex flex-col items-center justify-center min-h-screen px-6 text-center gap-10 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl" style={{ background: "rgba(194,0,0,0.08)" }} />
-        </div>
+        {/* Curtain background */}
+        <Image src="/bg-curtain.png" alt="" fill className="object-cover" sizes="100vw" priority />
+        <div className="absolute inset-0 bg-black/30" />
 
         <div className="relative z-10 flex flex-col items-center gap-8">
-          <div className="flex items-center justify-center w-28 h-28 rounded-full border-2" style={{ background: "rgba(194,0,0,0.12)", borderColor: "rgba(194,0,0,0.4)" }}>
-            <Trophy size={52} strokeWidth={1.5} style={{ color: "#c20000" }} />
-          </div>
-
-          <div className="space-y-2">
-            <h1 className="font-laries" style={{ fontSize: "clamp(2.5rem, 12vw, 4rem)", color: "#c20000", textShadow: "0 0 8px #fff, 0 0 20px rgba(255,255,255,0.6)" }}>
-              Bal des Twins
-            </h1>
-            <p className="text-white/50 text-lg">La révélation du gagnant</p>
-          </div>
-
           {!winner || winner.vote_count === 0 ? (
-            <p className="text-white/40 text-sm">Aucun vote enregistré pour le moment.</p>
+            <p className="text-white/70 text-lg font-semibold">Aucun vote enregistré pour le moment.</p>
           ) : (
             <Button
               onClick={startReveal}
               size="lg"
-              className="h-16 px-10 text-xl font-bold active:scale-95 transition-all duration-150 relative overflow-hidden"
-              style={{ background: "#c20000", color: "#fff", boxShadow: "0 8px 32px rgba(194,0,0,0.5)" }}
+              className="h-auto py-6 px-12 font-sans active:scale-95 transition-all duration-150 relative overflow-hidden leading-tight"
+              style={{
+                fontSize: "clamp(1.6rem, 5vw, 2.6rem)",
+                background: "#c20000",
+                color: "#fff",
+                boxShadow: "0 8px 40px rgba(194,0,0,0.7), 0 0 0 4px #fff",
+                textShadow: "0 2px 8px rgba(0,0,0,0.4)",
+              }}
             >
-              Découvrir les twins gagnants
+              THE BEST DUO<br />OF THE NIGHT IS...
             </Button>
           )}
         </div>
@@ -60,12 +57,15 @@ export function RevelationClient({ winner }: RevelationClientProps) {
   }
 
   // ── Countdown ─────────────────────────────────────────────────────────────
-  if (state === "3" || state === "2" || state === "1") {
+  if (state === "5" || state === "4" || state === "3" || state === "2" || state === "1") {
     return (
-      <main className="flex items-center justify-center min-h-screen bg-[#002c70]">
+      <main className="relative flex items-center justify-center min-h-screen overflow-hidden">
+        <Image src="/bg-curtain.png" alt="" fill className="object-cover" sizes="100vw" priority />
+        <div className="absolute inset-0 bg-black/30" />
+
         <div
           key={state}
-          className="flex items-center justify-center"
+          className="relative z-10 flex items-center justify-center"
           style={{ animation: "countdown-pop 0.9s ease forwards" }}
         >
           <span
