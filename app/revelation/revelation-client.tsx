@@ -103,7 +103,7 @@ export function RevelationClient({ winner }: RevelationClientProps) {
           src={winner.image_url}
           alt={winner.name}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="100vw"
           priority
         />
